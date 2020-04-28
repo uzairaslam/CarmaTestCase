@@ -1,0 +1,175 @@
+﻿@model CarmaTestCase.Dtos.PersonDto
+
+@{
+    ViewData["Title"] = "UploadExcel";
+}
+
+<h1>UploadExcel</h1>
+
+<h4>Person</h4>
+<hr />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Database Column</th>
+            <th scope="col">Excel Column</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form asp-action="ColumnsMappping">
+            <input asp-for="FileName" />
+            <div class="form-group">
+                <tr>
+                    <td><label asp-for="Id_document" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="Id_document" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="phone" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="phone" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="alternative_id" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="alternative_id" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="driving_license" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="driving_license" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="first_name" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="first_name" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="last_name" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="last_name" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="sex" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="sex" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="education" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="education" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="marital_status" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="marital_status" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label asp-for="children" class="control-label"></label></td>
+                    <td>
+                        <select asp-for="children" class="form-control" asp-items="@Model.ColumnNames">
+                            <option value="">Please select one</option>
+                        </select>
+                    </td>
+                </tr>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Map Columns" class="btn btn-primary" />
+            </div>
+        </form>
+    </tbody>
+</table>
+@*<div class="row">
+        <div class="col-md-4">
+            <form asp-action="UploadExcel">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Id_document" class="control-label"></label>
+                    <input asp-for="Id_document" class="form-control" />
+                    <span asp-validation-for="Id_document" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phone" class="control-label"></label>
+                    <input asp-for="phone" class="form-control" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="alternative_id" class="control-label"></label>
+                    <input asp-for="alternative_id" class="form-control" />
+                    <span asp-validation-for="alternative_id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="driving_license" class="control-label"></label>
+                    <input asp-for="driving_license" class="form-control" />
+                    <span asp-validation-for="driving_license" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="first_name" class="control-label"></label>
+                    <input asp-for="first_name" class="form-control" />
+                    <span asp-validation-for="first_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="last_name" class="control-label"></label>
+                    <input asp-for="last_name" class="form-control" />
+                    <span asp-validation-for="last_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="sex" class="control-label"></label>
+                    <input asp-for="sex" class="form-control" />
+                    <span asp-validation-for="sex" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="education" class="control-label"></label>
+                    <input asp-for="education" class="form-control" />
+                    <span asp-validation-for="education" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="marital_status" class="control-label"></label>
+                    <input asp-for="marital_status" class="form-control" />
+                    <span asp-validation-for="marital_status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="children" class="control-label"></label>
+                    <input asp-for="children" class="form-control" />
+                    <span asp-validation-for="children" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
